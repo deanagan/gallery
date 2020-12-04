@@ -1,12 +1,30 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <b-container id="app">
+      <b-row>
+        <b-col>
+          <navbar />
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col>
+          <router-view />
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
+
+<script>
+import NavBar from "@/components/NavBar";
+
+export default {
+  name: "App",
+  components: {
+    navbar: NavBar
+  }
+};
+</script>
 
 <style>
 #app {

@@ -1,24 +1,30 @@
 <template>
-  <div class="report">
+
+  <div class="gallery">
+
     <div class="reveal">
+      <b-container fluid>
       <div class="slides">
+
         <section
           v-for="place in getPlaces"
           :key="place"
           v-bind:data-background="getSlideBackground"
+          data-background-size="100%"
+          data-background-class="stretch"
         >
-          <b-card-group deck>
+
+          <b-card-group columns>
             <div v-for="pic in place.images" :key="pic">
               <div>
                 <b-card
-                  v-bind:sub-title="pic.title"
-                  sub-title-tag="h6"
+                  v-bind:title="pic.title"
+                  title-tag="h6"
                   v-bind:img-src="pic.image"
                   img-alt="Image"
-                  img-top
-                  tag="article"
                   style="max-width: 20rem;"
-                  class="mb-2"
+                  class="pl-3 mb-2 lb-0 bg-info"
+                  align="left"
                 >
                   <b-card-text text-tag="h6"
                     >{{ pic.description }}
@@ -27,10 +33,15 @@
               </div>
             </div>
           </b-card-group>
+
         </section>
+
       </div>
+</b-container>
     </div>
+
   </div>
+
 </template>
 
 <script>
@@ -120,24 +131,25 @@ export default {
       // Learn about plugins: https:/revealjs.com/plugins/
       // plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
       dependencies: [],
-      width: 1280,
-      height: 720,
+      width: 1060,
+      height: 700,
       pdfSeparateFragments: false,
-      pdfMaxPagesPerSlide: 1
+      pdfMaxPagesPerSlide: 1,
+      embedded: false,
+      center: true
     });
   }
 };
 </script>
 
 <style scoped>
+@import url("../../node_modules/reveal.js/dist/reveal.css");
+@import url("../../node_modules/reveal.js/dist/theme/black.css");
 
 @import url("../../node_modules/bootstrap/dist/css/bootstrap.css");
 @import url("../../node_modules/bootstrap-vue/dist/bootstrap-vue.css");
 
-@import url("../../node_modules/reveal.js/dist/reveal.css");
-@import url("../../node_modules/reveal.js/dist/theme/serif.css");
-
-.report {
+.gallery {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -145,7 +157,7 @@ export default {
   color: #2c3e50;
   /* margin-top: 60px; */
   height: 100vh;
-  padding-bottom: 50px;
+  padding-bottom: 10px;
 }
 
 .reveal h6 {

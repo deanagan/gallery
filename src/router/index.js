@@ -1,24 +1,30 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Gallery from "@/views/Gallery.vue";
+import Home from "@/views/Home.vue";
+
+import NotFound from "@/views/NotFound";
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 
 Vue.use(VueRouter);
-// Install BootstrapVue
 Vue.use(BootstrapVue);
-// Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin);
 
 const routes = [
   {
-    path: "/home",
+    path: "/",
     name: "Home",
     component: Home
   },
   {
+    path: "/Gallery",
+    name: "Gallery",
+    component: Gallery
+  },
+  {
     path: "*",
-    name: "Home",
-    component: Home
+    name: "NotFound",
+    component: NotFound
   },
   {
     path: "/about",
@@ -32,7 +38,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  //mode: "history",
+  mode: "history",
   base: process.env.BASE_URL,
   routes
 });
