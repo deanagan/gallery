@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="report">
     <div class="reveal">
       <div class="slides">
         <section
@@ -7,17 +7,18 @@
           :key="place"
           v-bind:data-background="getSlideBackground"
         >
-          <b-card-group columns>
+          <b-card-group deck>
             <div v-for="pic in place.images" :key="pic">
               <div>
                 <b-card
-                  v-bind:title="pic.title"
-                  title-tag="h6"
+                  v-bind:sub-title="pic.title"
+                  sub-title-tag="h6"
                   v-bind:img-src="pic.image"
                   img-alt="Image"
+                  img-top
+                  tag="article"
                   style="max-width: 20rem;"
-                  class="pl-3 mb-2 lb-0 bg-info"
-                  align="left"
+                  class="mb-2"
                 >
                   <b-card-text text-tag="h6"
                     >{{ pic.description }}
@@ -119,28 +120,24 @@ export default {
       // Learn about plugins: https:/revealjs.com/plugins/
       // plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
       dependencies: [],
-      width: 750,
-      height: 563,
+      width: 1280,
+      height: 720,
       pdfSeparateFragments: false,
-      pdfMaxPagesPerSlide: 1,
-      embedded: true
+      pdfMaxPagesPerSlide: 1
     });
   }
 };
 </script>
 
 <style scoped>
-@import url("../../node_modules/reveal.js/dist/reveal.css");
-@import url("../../node_modules/reveal.js/dist/theme/serif.css");
 
 @import url("../../node_modules/bootstrap/dist/css/bootstrap.css");
 @import url("../../node_modules/bootstrap-vue/dist/bootstrap-vue.css");
 
-.slideformat {
-  padding: 20px;
-}
+@import url("../../node_modules/reveal.js/dist/reveal.css");
+@import url("../../node_modules/reveal.js/dist/theme/serif.css");
 
-.home {
+.report {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
