@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Gallery from "@/views/Gallery.vue";
+import Report from "@/views/Report.vue";
 import Home from "@/views/Home.vue";
 
 import NotFound from "@/views/NotFound";
@@ -17,9 +17,9 @@ const routes = [
     component: Home
   },
   {
-    path: "/Gallery",
-    name: "Gallery",
-    component: Gallery
+    path: "/report",
+    name: "Report",
+    component: Report
   },
   {
     path: "*",

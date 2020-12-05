@@ -6,8 +6,8 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <!-- To be replaced by gallery page -->
-        <router-link class="nav-link" to="/gallery">Gallery</router-link>
+        <!-- To be replaced by report page -->
+        <router-link class="nav-link" to="/report">Report</router-link>
         <b-nav-item href="#" disabled>Disabled</b-nav-item>
       </b-navbar-nav>
 

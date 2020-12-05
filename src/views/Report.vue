@@ -1,47 +1,38 @@
 <template>
-
-  <div class="gallery">
-
-    <div class="reveal">
-      <b-container fluid>
-      <div class="slides">
-
-        <section
-          v-for="place in getPlaces"
-          :key="place"
-          v-bind:data-background="getSlideBackground"
-          data-background-size="100%"
-          data-background-class="stretch"
-        >
-
-          <b-card-group columns>
-            <div v-for="pic in place.images" :key="pic">
-              <div>
-                <b-card
-                  v-bind:title="pic.title"
-                  title-tag="h6"
-                  v-bind:img-src="pic.image"
-                  img-alt="Image"
-                  style="max-width: 20rem;"
-                  class="pl-3 mb-2 lb-0 bg-info"
-                  align="left"
-                >
-                  <b-card-text text-tag="h6"
-                    >{{ pic.description }}
-                  </b-card-text>
-                </b-card>
+  <b-container fluid>
+    <div class="report">
+      <div class="reveal">
+        <div class="slides">
+          <section
+            v-for="(place, index) in getPlaces"
+            :key="index"
+            v-bind:data-background="getSlideBackground"
+            data-background-size="100%"
+          >
+            <b-card-group columns>
+              <div v-for="(pic, index) in place.images" :key="index">
+                <div>
+                  <b-card
+                    v-bind:title="pic.title"
+                    title-tag="h6"
+                    v-bind:img-src="pic.image"
+                    img-alt="Image"
+                    style="max-width: 20rem;"
+                    class="pl-3 mb-2 lb-0 bg-info"
+                    align="left"
+                  >
+                    <b-card-text text-tag="h6"
+                      >{{ pic.description }}
+                    </b-card-text>
+                  </b-card>
+                </div>
               </div>
-            </div>
-          </b-card-group>
-
-        </section>
-
+            </b-card-group>
+          </section>
+        </div>
       </div>
-</b-container>
     </div>
-
-  </div>
-
+  </b-container>
 </template>
 
 <script>
@@ -135,7 +126,7 @@ export default {
       height: 700,
       pdfSeparateFragments: false,
       pdfMaxPagesPerSlide: 1,
-      embedded: false,
+      embedded: true,
       center: true
     });
   }
@@ -149,7 +140,7 @@ export default {
 @import url("../../node_modules/bootstrap/dist/css/bootstrap.css");
 @import url("../../node_modules/bootstrap-vue/dist/bootstrap-vue.css");
 
-.gallery {
+.report {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -157,6 +148,9 @@ export default {
   color: #2c3e50;
   /* margin-top: 60px; */
   height: 100vh;
+  width: 1000px;
+  margin-left: 0px;
+  border-left: 0px;
   padding-bottom: 10px;
 }
 
