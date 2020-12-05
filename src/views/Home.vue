@@ -1,6 +1,6 @@
 <template>
   <p class="homeText">
-    Trip Reports
+    Gallery
   </p>
 </template>
 <script>

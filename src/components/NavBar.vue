@@ -1,13 +1,13 @@
 <template>
-  <b-navbar toggleable="lg" type="dark" variant="info" fixed="top">
+  <b-navbar toggleable="lg" type="dark" variant="info">
     <router-link class="nav-link" to="/">Home</router-link>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <!-- To be replaced by report page -->
-        <router-link class="nav-link" to="/report">Report</router-link>
+        <!-- To be replaced by Gallery page -->
+        <router-link class="nav-link" to="/gallery">Gallery</router-link>
         <b-nav-item href="#" disabled>Disabled</b-nav-item>
       </b-navbar-nav>
 
