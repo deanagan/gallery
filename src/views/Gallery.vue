@@ -17,6 +17,11 @@
                 </b-card-text>
               </b-card>
 
+              <!-- spacer only -->
+              <b-card>
+                <div class=".px-2"></div>
+              </b-card>
+
               <b-card v-bind:header="pets.header" header-tag="h5">
                 <blockquote class="blockquote mb-0" header-tag="h6">
                   <p>
@@ -30,14 +35,14 @@
               </b-card>
 
               <b-card
-                title="Title"
+                v-bind:title="pets.funFact2"
                 title-tag="h6"
-                img-src="https://placekitten.com/500/350"
+                v-bind:img-src="pets.images[1].image"
                 img-alt="Image"
                 img-top
               >
                 <b-card-text text-tag="h6">
-                  This card has supporting text below
+                  {{ pets.funFact2Text }}
                 </b-card-text>
               </b-card>
 
@@ -81,12 +86,15 @@ export default {
       getLogo: require("@/assets/logo.png"),
       getPets: {
         1: {
-          header: "Cats!",
+          header: "Cat Fact!",
           petSpeed: "Cats can run up to 48.28 kilometers per hour!",
           fastestHuman: "Usain Bolt was clocked at 44.72km/h, ",
           description: "Cats are well known for their playful nature.",
           funFact:
             "Cats have more bones than humans - many of which are in their tail!",
+          funFact2: "Cats sleep up to 18 hours a day",
+          funFact2Text:
+            "Cats are one of the top sleepers in the animal kingdom, spending about 16 to 20 hours a day sleeping irrespective of their ages.",
           images: [
             {
               title: "Scratchie",
@@ -191,9 +199,7 @@ export default {
   padding-bottom: 30px;
   max-width: 100%;
 }
-.reveal .section .present {
-  top: 0px;
-}
+
 .reveal h6 {
   text-transform: none;
 }
@@ -204,5 +210,11 @@ export default {
 .reveal .print-pdf .stretch {
   max-width: 100%;
   max-height: 100%;
+}
+
+.card-body {
+  padding-top: 0;
+  padding-left: 2px;
+  padding-right: 2px;
 }
 </style>
