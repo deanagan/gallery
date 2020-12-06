@@ -1,6 +1,8 @@
 <template>
-  <b-navbar toggleable="lg" type="dark" variant="info">
-    <router-link class="nav-link" to="/">Home</router-link>
+  <b-navbar type="dark" variant="info">
+    <router-link class="nav-link" @click.native="$router.go()" to="/"
+      >Home</router-link
+    >
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -10,7 +12,10 @@
         <router-link class="nav-link" @click.native="$router.go()" to="/gallery"
           >Gallery</router-link
         >
-        <b-nav-item href="#" disabled>Disabled</b-nav-item>
+        <router-link class="nav-link" to="/gallery/?print-pdf" target="_blank"
+          >Export
+          <b-icon-arrow-up-right></b-icon-arrow-up-right>
+        </router-link>
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->
