@@ -27,9 +27,9 @@
                   <p>
                     {{ pets.petSpeed }}
                   </p>
-                  <footer class="blockquote-footer">
+                  <footer v-if="pets.factSource" class="blockquote-footer">
                     {{ pets.fastestHuman }}
-                    <cite title="Source Title">Wikipedia</cite>
+                    <cite title="Source Title">{{ pets.factSource }}</cite>
                   </footer>
                 </blockquote>
               </b-card>
@@ -47,25 +47,32 @@
               </b-card>
 
               <b-card>
-                <b-card-title>Title</b-card-title>
+                <b-card-title title-tag="h5">{{ pets.funFact3 }}</b-card-title>
                 <b-card-text text-tag="h6">
-                  This card has supporting text below as a natural lead-in to
-                  additional content.
+                  {{ pets.funFact3Detail }}
                 </b-card-text>
-                <b-card-text class="small text-muted" text-tag="h6"
-                  >Last updated 3 mins ago</b-card-text
-                >
+                <b-card-text class="text-muted" text-tag="h6">{{
+                  pets.funFact3Source
+                }}</b-card-text>
               </b-card>
 
               <b-card
-                img-src="https://picsum.photos/400/200/?image=41"
+                v-bind:img-src="pets.images[2].image"
                 img-alt="Image"
                 img-top
               >
                 <b-card-text text-tag="h6">
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This card has even longer
-                  content than the first.
+                  {{ pets.funFact4 }}
+                </b-card-text>
+              </b-card>
+              <b-card
+                v-if="pets.images[3]"
+                v-bind:img-src="pets.images[3].image"
+                img-alt="Image"
+                img-top
+              >
+                <b-card-text text-tag="h6">
+                  {{ pets.funFact4 }}
                 </b-card-text>
               </b-card>
             </b-card-group>
@@ -88,63 +95,58 @@ export default {
         1: {
           header: "Cat Fact!",
           petSpeed: "Cats can run up to 48.28 kilometers per hour!",
-          fastestHuman: "Usain Bolt was clocked at 44.72km/h, ",
+          fastestHuman: "Usain Bolt was clocked at 44.72km/h",
+          factSource: "World Records",
           description: "Cats are well known for their playful nature.",
           funFact:
             "Cats have more bones than humans - many of which are in their tail!",
           funFact2: "Cats sleep up to 18 hours a day",
           funFact2Text:
             "Cats are one of the top sleepers in the animal kingdom, spending about 16 to 20 hours a day sleeping irrespective of their ages.",
+
+          funFact3: "Cats navigate using the sunlight.",
+          funFact3Detail:
+            "How a lost cat can find its way back home without a map remains a mystery to many people today. A cat is able to walk a long distance from its new home back to the former foster owner without getting lost. ",
+          funFact3Source: "Source: worldatlas.com",
+          funFact4:
+            "Cats not only spend most of the day sleeping but also dream in their sleep. Like humans, cats experience Rapid Eye Movement sleep, a stage where most dreaming occurs. Their dreams do not differ with that of humans since they also dream about day-to-day activities.",
           images: [
             {
-              title: "Scratchie",
-              image: require("@/assets/cats/cat1.png"),
-              description: "Always curious."
+              image: require("@/assets/cats/cat1.png")
             },
             {
-              title: "Phineas",
-              image: require("@/assets/cats/cat2.png"),
-              description: "Smart and playful"
+              image: require("@/assets/cats/cat2.png")
             },
             {
-              title: "Flynn",
-              image: require("@/assets/cats/cat3.png"),
-              description: "Playful"
-            },
-            {
-              title: "Greg",
-              image: require("@/assets/cats/cat4.png"),
-              description: "Quick and Agile"
+              image: require("@/assets/cats/cat3.png")
             }
           ]
         },
         2: {
-          description: "Dogs, man's best friend.",
+          header: "Greyhounds",
+          petSpeed:
+            "Greyhounds are excellent long distance runners and can keep a speed of 35mph for up to 7 miles. ",
+          description: "Dogs, man's best friend and most loyal companion.",
+          factSource: "",
+          funFact:
+            "According to the Washington Post, for eight months during 1990 a blind man named Bill Irwin hiked the Appalachian Trail with his guide dog, Orient helping him along the way.",
+          funFact2: "The Ewoks in Star Wars were based on a dog",
+          funFact2Text: "It was George Lucas' family dog",
           images: [
             {
-              title: "Abby",
-              image: require("@/assets/dogs/dog1.png"),
-              description: "Always sleep but always happy."
+              image: require("@/assets/dogs/dog1.png")
             },
             {
-              title: "Trixie and Ferb",
-              image: require("@/assets/dogs/dog2.png"),
-              description: "Dynamic duo, playful."
+              image: require("@/assets/dogs/dog2.png")
             },
             {
-              title: "Coco",
-              image: require("@/assets/dogs/dog3.png"),
-              description: "Smart and obedient."
+              image: require("@/assets/dogs/dog3.png")
             },
             {
-              title: "Shelby",
-              image: require("@/assets/dogs/dog4.png"),
-              description: "Loyal."
+              image: require("@/assets/dogs/dog4.png")
             },
             {
-              title: "Penny",
-              image: require("@/assets/dogs/dog5.png"),
-              description: "Cheeky."
+              image: require("@/assets/dogs/dog5.png")
             }
           ]
         }
@@ -203,6 +205,11 @@ export default {
 .reveal h6 {
   text-transform: none;
 }
+
+.reveal h5 {
+  text-transform: none;
+}
+
 .reveal p {
   text-align: center;
 }
