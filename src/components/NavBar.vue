@@ -6,8 +6,10 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <!-- To be replaced by Gallery page -->
-        <router-link class="nav-link" to="/gallery">Gallery</router-link>
+        <!-- Needed to add a @click.native="$router.go()" so the reveal.js page loads. Otherwise it stays blank. -->
+        <router-link class="nav-link" @click.native="$router.go()" to="/gallery"
+          >Gallery</router-link
+        >
         <b-nav-item href="#" disabled>Disabled</b-nav-item>
       </b-navbar-nav>
 
