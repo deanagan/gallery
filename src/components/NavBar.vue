@@ -1,5 +1,5 @@
 <template>
-  <b-navbar type="dark" variant="info">
+  <b-navbar toggleable="lg" type="dark" variant="dark">
     <router-link class="nav-link" @click.native="$router.go()" to="/"
       >Home</router-link
     >
@@ -9,10 +9,10 @@
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
         <!-- Needed to add a @click.native="$router.go()" so the reveal.js page loads. Otherwise it stays blank. -->
-        <router-link class="nav-link" @click.native="$router.go()" to="/gallery"
+        <!-- <router-link class="nav-link" @click.native="$router.go()" to="/gallery"
           >Gallery</router-link
-        >
-        <router-link class="nav-link" to="/gallery/?print-pdf" target="_blank"
+        > -->
+        <router-link class="nav-link" to="/?print-pdf" target="_blank"
           >Export
           <b-icon-arrow-up-right></b-icon-arrow-up-right>
         </router-link>
