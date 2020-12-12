@@ -2,7 +2,11 @@
   <div class="gallery">
     <div class="reveal">
       <div class="slides">
-        <section v-for="(pets, index) in getPets" :key="index">
+        <section
+          data-background-color="aquamarine"
+          v-for="(pets, index) in getPets"
+          :key="index"
+        >
           <div>
             <b-card-group columns>
               <b-card
@@ -78,6 +82,8 @@
             </b-card-group>
           </div>
         </section>
+
+        <Functional />
       </div>
     </div>
   </div>
@@ -85,6 +91,7 @@
 
 <script>
 import Reveal from "reveal.js/dist/reveal";
+import Functional from "@/components/Functional";
 
 export default {
   data() {
@@ -153,7 +160,7 @@ export default {
       }
     };
   },
-  components: {},
+  components: { Functional },
   mounted() {
     if (window.location.search.match(/print-pdf/gi)) {
       var link = document.createElement("link");
