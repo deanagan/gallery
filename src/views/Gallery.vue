@@ -183,7 +183,7 @@ export default {
       link.href = "../../node_modules/reveal.js/dist/print/pdf.css";
       document.getElementsByTagName("head")[0].appendChild(link);
     }
-
+    Reveal = this.Reveal;
     Reveal.initialize({
       hash: true,
 
