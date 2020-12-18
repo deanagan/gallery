@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <navbar />
+    <div class="hidden-xxlg">
+      <navbar />
+    </div>
     <div>
       <router-view />
     </div>
@@ -38,5 +40,11 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+@media (min-width: 2048px) and (max-width: 4095px) {
+  .hidden-xxlg {
+    display: none !important;
+  }
 }
 </style>
